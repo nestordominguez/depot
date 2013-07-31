@@ -1,25 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p align = center>
   <b>Title:</b>
   <%= @product.title %>
 </p>
 
-<p>
+<p align = center>
   <b>Description:</b>
   <%= @product.description %>
 </p>
 
-<p>
+<p align = center>
   <b>Image url:</b>
   <%= @product.image_url %>
 </p>
-
-<p>
+<p align = center>
+<b>Image loock: 	</b>	
+</p>
+<p align = center><%= image_tag(@product.image_url) %></p>
+<p align = center>
   <b>Price:</b>
   <%= @product.price %>
 </p>
 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<p align = center><%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %> </p>
