@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 	attr_accessible :title, :description, :image_url, :price
 	default_scope :order => 'title'
 	has_many :line_items
+	has_many :order, :through => :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
 
 	validates :title, :description, :image_url, :presence => true
