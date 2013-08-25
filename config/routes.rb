@@ -2,6 +2,9 @@ Depot::Application.routes.draw do
   
 
 
+  resources :users
+
+
 	root :to => 'store#index', :as => 'store'
 	
 	get "store/index" 
