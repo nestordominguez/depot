@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   
   	def User.encrypt_password(password, salt)
-	  	Digest::SHA2.hexdigest(pasword + "wibble" + salt)  	
+	  	Digest::SHA2.hexdigest(password + "wibble" + salt)  	
 	end
 
 	def password=(password)
