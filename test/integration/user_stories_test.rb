@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class UserStoriesTest < ActionDispatch::IntegrationTest
-  	fixtures :product
-  	test "buying a product" do 
+  	fixtures :products
+  	test "buying a product" do
 		LineItem.delete_all
 		Order.delete_all
-		ruby_book = product(:ruby)
+		ruby_book = products(:ruby)
 
 		get "/"
 		assert_response :success
@@ -24,7 +24,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
 
 		post_via_redirect "orders",
 						:order => { :name 		=> "Dave Thomas",
-									:adress		=> "123 The Street",
+									:address		=> "123 The Street",
 									:email 		=> "dave@example.com",
 									:pay_type	=> "Check"}
 		assert_response :success
@@ -37,7 +37,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
 		order = orders [0]
 
 		assert_equal "Dave Thomas",			order.name
-		assert_equal "123 The Street",		order.adress
+		assert_equal "123 The Street",		order.address
 		assert_equal "dave@example.com",	order.email
 		assert_equal "Check",				order.pay_type
 

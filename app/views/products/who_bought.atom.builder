@@ -8,9 +8,9 @@ atom_feed do |feed|
 		feed.entry(order) do |entry|
 			entry.title "order #{order.id}"
 			entry.summary :type => 'xhtml' do |xhtml|
-				xhtml.p "Shipped to #{order.adress}" 
+				xhtml.p "Shipped to #{order.address}"
 
-				xhtml.table do 
+				xhtml.table do
 					xhtml.tr do
 						xhtml.th 'Product'
 						xhtml.th 'Quantity'
@@ -28,7 +28,7 @@ atom_feed do |feed|
 						xhtml.th number_to_currency order.line_items.map(&:total_price).sum
 					end
 				end
-				xhtml.p "Paid by #{order.pay_type}"		
+				xhtml.p "Paid by #{order.pay_type}"
 			end
 			entry.author do author
 				entry.name order.name
